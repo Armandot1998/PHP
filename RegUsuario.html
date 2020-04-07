@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrar</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link rel="stylesheet" href="Libs/MDBootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="Libs/MDBootstrap/css/mdb.min.css">
+  <link rel="stylesheet" href="Libs/MDBootstrap/css/style.css">
+</head>
+
+<body>
+<!--Modal: Login / Register Form-->
+<div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <!--Modal: Login & Register tabs-->
+  <div class="modal-dialog cascading-modal" role="document">
+    <!--Content-->
+    <div class="modal-content">
+
+      <!--Modal cascading tabs-->
+      <div class="modal-c-tabs">
+
+        <!-- Nav tabs -->
+        <ul class="nav md-pills nav-justified pills-primary mt-4 mx-4" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab"><i class="fas fa-user mr-1"></i>
+              Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#panel2" role="tab"><i class="fas fa-user-plus mr-1"></i>
+              Register</a>
+          </li>
+        </ul>
+
+        <!-- Tab panels -->
+        <div class="tab-content pt-3">
+          <!--Panel 1-->
+          <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
+
+            <!--Body-->
+            <div class="modal-body mb-1">
+              <div class="md-form form-sm">
+                <i class="fas fa-envelope prefix"></i>
+                <input type="text" id="cedula" class="form-control form-control-sm">
+                <label for="cedula">Your email</label>
+              </div>
+
+              <div class="md-form form-sm">
+                <i class="fas fa-lock prefix"></i>
+                <input type="password" id="form12" class="form-control form-control-sm">
+                <label for="form12">Your password</label>
+              </div>
+              <div class="text-center mt-2">
+                <button class="btn btn-primary" id="enviar">Log in <i class="fas fa-sign-in ml-1"></i></button>
+              </div>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer display-footer">
+              <div class="options text-center text-md-right mt-1">
+                <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
+                <p>Forgot <a href="#" class="blue-text">Password?</a></p>
+              </div>
+              <button type="button" class="btn btn-outline-primary waves-effects ml-auto" data-dismiss="modal">Close</button>
+            </div>
+            <div class="modal-footer display-footer" id="respuesta"></div>
+          </div>
+          <!--/.Panel 1-->
+
+          <!--Panel 2-->
+          <div class="tab-pane fade" id="panel2" role="tabpanel">
+
+            <!--Body-->
+            <div class="modal-body">
+              <div class="md-form form-sm">
+                <i class="fas fa-envelope prefix"></i>
+                <input type="text" id="form13" class="form-control form-control-sm">
+                <label for="form13">Your email</label>
+              </div>
+
+              <div class="md-form form-sm">
+                <i class="fas fa-lock prefix"></i>
+                <input type="password" id="form14" class="form-control form-control-sm">
+                <label for="form14">Your password</label>
+              </div>
+
+              <div class="md-form form-sm">
+                <i class="fas fa-lock prefix"></i>
+                <input type="password" id="form15" class="form-control form-control-sm">
+                <label for="form15">Repeat password</label>
+              </div>
+
+              <div class="text-center form-sm mt-2">
+                <button class="btn btn-primary">Sign up <i class="fas fa-sign-in ml-1"></i></button>
+              </div>
+
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+              <div class="options text-right">
+                <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p>
+              </div>
+              <button type="button" class="btn btn-outline-primary waves-effect ml-auto" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          <!--/.Panel 2-->
+        </div>
+
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+  <!--/Modal: Login & Register tabs-->
+</div>
+<!--Modal: Login / Register Form-->
+
+<!-- Grid row -->
+<div class="row">
+
+  <!--Grid column-->
+  <div class="col-md-8 col-xl-6">
+
+    <div class="text-center">
+      <a href="" class="btn btn-default btn-rounded my-4" data-toggle="modal" data-target="#modalLRForm">Launch
+        Modal LogIn/Register <i class="fas fa-eye ml-1"></i></a>
+    </div>
+
+  </div>
+  <!--Grid column-->
+
+</div>
+<!-- Grid row -->
+
+
+  <section>
+    <form action="">
+
+      <label for="cedula">
+        <spam>Cédula:</sapm>
+          <input type="text" id="ceduala" placeholder="Ingrese su cédula Identidad" />
+      </label>
+
+      <button type="button" id="enviaar">Enviar</button>
+    </form>
+  </section>
+
+  <script>
+
+    $('#enviar').click(function () {
+
+      var Cedula = document.getElementById('cedula').value;
+
+      var ruta = "cedula=" + Cedula;
+
+      $.ajax({
+        url: './Procesos/Insertar.php',
+        type: 'POST',
+        data: ruta,
+      })
+        .done(function (res) {
+          $('#respuesta').html(res)
+        })
+        .fail(function () {
+          console.log("error");
+        })
+        .always(function () {
+          console.log("complete");
+        });
+    });
+
+  </script>
+
+
+
+  <script type="text/javascript" src="Libs/MDBootstrap/js/jquery.min.js"></script>
+  <script type="text/javascript" src="Libs/MDBootstrap/js/popper.min.js"></script>
+  <script type="text/javascript" src="Libs/MDBootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="Libs/MDBootstrap/js/mdb.min.js"></script>
+  <script type="text/javascript"></script>
+
+</body>
+
+</html>
